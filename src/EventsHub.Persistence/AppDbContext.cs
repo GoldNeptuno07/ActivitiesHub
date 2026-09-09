@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Domain;
+using EventsHub.Domain;
 
-namespace Persistence;
+namespace EventsHub.Persistence;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options): DbContext(options)
 {
