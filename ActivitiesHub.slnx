@@ -3,6 +3,7 @@
     <Project Path="src/API/API.csproj" />
     <Project Path="src/Application/Application.csproj" />
     <Project Path="src/Domain/Domain.csproj" />
+    <Project Path="src/EventsHub.OpenApi/EventsHub.OpenApi.csproj" />
     <Project Path="src/Persistence/Persistence.csproj" />
   </Folder>
 </Solution>
