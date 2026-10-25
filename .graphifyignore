@@ -1,6 +1,0 @@
-web/node_modules/
-web/dist/
-**/bin/
-**/obj/
-src/EventsHub.OpenApi/Generated/
-src/openapi/

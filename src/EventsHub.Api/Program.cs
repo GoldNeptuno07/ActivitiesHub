@@ -1,6 +1,3 @@
-using EventsHub.Application.Core;
-using EventsHub.Application.Core.Mapping;
-using EventsHub.Application.Events.Queries;
 using EventsHub.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,10 +10,6 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"));
 });
 builder.Services.AddCors();
-builder.Services.AddMediatR(opt =>
-    opt.RegisterServicesFromAssemblyContaining<GetEventList.Handler>()
-);
-builder.Services.AddMapper(typeof(MappingProfiles).Assembly);
 
 var app = builder.Build();
 

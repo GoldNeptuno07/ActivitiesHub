@@ -1,4 +1,5 @@
-using System.Runtime.CompilerServices;
+using System;
+using System.Threading.Tasks;
 using EventsHub.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,13 +18,12 @@ public class EventsControllerTests
     }
 
     [Test]
-    public async Task GetEventsAsync_WhenEventsExists_ReturnsAllEvents()
+    public async Task GetEventsAsync_WhenEventsExist_ReturnsAllEvents()
     {
-        // Arrange
         var expectedCount = await GlobalTestSetup.AppDbContext.Events.CountAsync();
-        // Act
+
         var result = await _eventsController.GetEventsAsync();
-        // Assert
+
         Assert.That(result.Value, Is.Not.Null);
         Assert.That(result.Value, Has.Count.EqualTo(expectedCount));
     }
@@ -31,11 +31,10 @@ public class EventsControllerTests
     [Test]
     public async Task GetEventDetailAsync_WhenEventExists_ReturnsMatchingEvent()
     {
-        // Arrange
         var existing = await GlobalTestSetup.AppDbContext.Events.FirstAsync();
-        // Act
+
         var result = await _eventsController.GetEventDetailAsync(existing.Id);
-        // Assert
+
         Assert.That(result.Value, Is.Not.Null);
         Assert.Multiple(() =>
         {
@@ -45,14 +44,13 @@ public class EventsControllerTests
     }
 
     [Test]
-    public async Task GetEventDetailAsync_WhenEventDoesntExist_ReturnsNotFound()
+    public async Task GetEventDetailAsync_WhenEventDoesNotExist_ReturnsNotFound()
     {
         var nonExistentId = Guid.NewGuid().ToString();
 
         var result = await _eventsController.GetEventDetailAsync(nonExistentId);
-        
-        Assert.That(result.Result, Is.InstanceOf<NotFoundObjectResult>());
 
+        Assert.That(result.Result, Is.InstanceOf<NotFoundObjectResult>());
         var notFoundResult = (NotFoundObjectResult)result.Result;
 
         Assert.Multiple(() =>
