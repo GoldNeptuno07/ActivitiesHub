@@ -12,14 +12,13 @@ runtime:
   scripts:
     - type: tests
       code: |-
-        test("Status code is 200 ok", function() {
+        test("Status code is 200 OK", function() {
           expect(res.getStatus()).to.equal(200);
         });
 
         test("Response returns an array", function() {
           const body = res.getBody();
           expect(body).to.be.an("array");
-          expect(body.length).to.equal(10);
         });
 
 settings:

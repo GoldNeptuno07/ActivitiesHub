@@ -1,3 +1,5 @@
 {
-    "dotnet.defaultSolution": "ActivitiesHub.slnx"
+  "yaml.schemas": {
+    "https://www.artillery.io/schema.json": []
+  }
 }

@@ -6,9 +6,9 @@ public static class DbInitializer
 {
     public static async Task SeedDataAsync(AppDbContext context)
     {
-        if (context.Activities.Any()) return;
+        if (context.Events.Any()) return;
 
-        var events = new List<Activity>
+        var events = new List<Event>
         {
             new() {
                 Title = "Past Event 1",
@@ -112,7 +112,7 @@ public static class DbInitializer
             }
         };
 
-        context.Activities.AddRange(events);
+        context.Events.AddRange(events);
 
         await context.SaveChangesAsync();
     }

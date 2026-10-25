@@ -1,10 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
 using EventsHub.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventsHub.Persistence;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options): DbContext(options)
+public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
-    public DbSet<Activity> Activities { get; set; }
-
+    public DbSet<Event> Events{ get; set; }
 }
