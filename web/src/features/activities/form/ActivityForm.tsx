@@ -3,14 +3,9 @@ import { Box, Button, Paper, TextField, Typography } from '@mui/material'
 type Props = {
   activity?: Activity
   closeForm: () => void
-  submitForm: (activity: Activity) => void
 }
 
-export default function ActivityForm({
-  activity,
-  closeForm,
-  submitForm,
-}: Props) {
+export default function ActivityForm({ activity, closeForm }: Props) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
 
@@ -19,10 +14,7 @@ export default function ActivityForm({
     formData.forEach((value, key) => {
       data[key] = value
     })
-
-    if (activity) data.id = activity.id
-
-    submitForm(data as unknown as Activity)
+    console.log(data)
   }
 
   return (

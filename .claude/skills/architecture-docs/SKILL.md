@@ -13,7 +13,6 @@ never generate full content before the outline is approved.
 ## When to use this
 
 Trigger on requests like:
-
 - "Document the architecture of this app"
 - "Write me a README for the API / frontend / this project"
 - "I need docs for onboarding new devs"
